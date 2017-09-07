@@ -3,18 +3,18 @@ package lab_3.individual_lab;
 import kareltherobot.*;
 import java.awt.Color;
 
-public class Problem3Driver implements Directions
+public class Problem1Driver implements Directions
 {
-    public static void main(String args[])  {
-        Problem2 karel = new Problem2(1, 1, East, -1);
-        karel.carpetRooms();
+    public static void faceEast()  {
+        Problem1 karel = new Problem1(1, 1, East, -1);
+        karel.faceEast();
         karel.turnOff();
         
     } 
 
     static {
         World.reset(); 
-        World.readWorld("worlds/fig5-9.kwld"); 
+        World.readWorld("worlds/fig5-8.kwld"); 
         World.setBeeperColor(Color.magenta);
         World.setStreetColor(Color.blue);
         World.setNeutroniumColor(Color.green.darker());

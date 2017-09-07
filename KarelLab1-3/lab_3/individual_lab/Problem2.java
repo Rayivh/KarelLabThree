@@ -15,7 +15,47 @@ public class Problem2 extends Robot
     }
 
     public void carpetRooms(){
-        
+        for(int i = 0; i < 9; i++){
+            Mainloop();
+        }
+    }
+    public void moveUntilObstacle(){
+        while(frontIsClear()){
+            move();
+        }
+    }
+    public void resetForNextAvenue(){
+        while(!facingSouth()){
+            turnLeft();
+        }
+        while(frontIsClear()){
+                move();
+        }
+        turnLeft();
+        move();
+    }
+    public void CheckForRoom(){
+        if(!frontIsClear()){
+            turnLeft();
+            if(!frontIsClear()){
+                turnLeft();
+                turnLeft();
+                if(!frontIsClear()){
+                    putBeeper();
+                }   
+            }
+        }
+    }
+    public void Mainloop(){
+        turnLeft();
+        for(int i = 0; i < 5; i++){
+            if(frontIsClear()){
+                move();
+                if(!frontIsClear()){
+                    CheckForRoom();
+                }
+            }
+        }
+        resetForNextAvenue();
     }
 }
-
